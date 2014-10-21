@@ -5,6 +5,7 @@ directive('heAjax', ['$http', '$parse', '$compile',
       //maybe also 'E'?
       restrict: 'A',
       compile: function heAjaxCompile(tElement, tAttrs) {
+        console.log(tElement.attr('ng-cloak',''));
         var heAjax = eval( '(' + tAttrs.heAjax + ')');
         var heAjaxScope = heAjax.scope;
         var heAjaxUrl = heAjax.url;
@@ -23,6 +24,7 @@ directive('heAjax', ['$http', '$parse', '$compile',
 
           //response body, should check response status?
           $http.get(heAjaxUrl).then(function(response) {
+            element.removeAttr('ng-cloak');
             //priority: scope: key: DOM
             if(angular.isDefined(heAjaxScope)){
               scope[heAjaxScope] = angular.fromJson(response.data);
