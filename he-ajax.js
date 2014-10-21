@@ -1,4 +1,4 @@
-angular.module('vko-online', []).
+angular.module('helium', []).
 directive('heAjax', ['$http', '$parse', '$compile', 
   function heAjaxDir($http, $parse, $compile) {
     return{
