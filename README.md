@@ -3,7 +3,7 @@ he-ajax
 Part of [Helium](https://github.com/vko-online/helium)
 ###Angularjs ajax directive.
 
-Simple directive used to fetch data without writing any backend query request, as directive itself makes `$http` request to provided url, applies to scope or stright to DOM with specified `key` for response data. `ng-ajax` is only for simple usage, implementation is strightforward simple, just makes our life a little bit easier.
+Simple directive used to fetch data without writing any backend query request, as directive itself makes `$http` request to provided url, applies to scope or stright to DOM with specified `key` for response data. `he-ajax` is only for simple usage, implementation is strightforward simple, just makes our life a little bit easier.
 
 ###How to use
 Grab `he-ajax.js` file from dist folder. 
