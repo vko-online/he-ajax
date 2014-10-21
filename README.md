@@ -7,7 +7,7 @@ Simple directive used to fetch data without writing any backend query request, a
 
 ###How to use
 Grab `he-ajax.js` file from dist folder. 
-Then module dependency `vko-online` to your app module:
+Then module dependency `helium` to your app module:
 ```html
 angular.module('myApp', ['helium']);
 ```
