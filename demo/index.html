@@ -6,8 +6,10 @@
 </head>
 
 <body>
-  <div ng-ajax="http://jsonplaceholder.typicode.com/users/1;name"></div>
-  <script src="../dist/ng-ajax.js"></script>
+  <div he-ajax="{url: 'http://jsonplaceholder.typicode.com/users/1', scope: 'user', key: 'name'}">
+  	<h3>{{user.name}}</h3>
+  </div>
+  <script src="../dist/he-ajax.js"></script>
   <script>
     angular.module('app', ['vko-online']);
     angular.bootstrap(document, ['app']);
