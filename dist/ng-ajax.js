@@ -22,7 +22,7 @@ angular.module('vko-online', []).directive('ngAjax', ['$http',
                   elem.html(response.data[0]);
                 else
                 if (key == '')
-                  elem.html(response.data);
+                  elem.html(angular.fromJson(response.data));
                 else
                   elem.html(response.data[key]);
               });
