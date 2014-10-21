@@ -31,45 +31,54 @@
         <h1>
 <a name="he-ajax" class="anchor" href="#he-ajax"><span class="octicon octicon-link"></span></a>he-ajax</h1>
 
+<p>Part of <a href="https://github.com/vko-online/helium">Helium</a></p>
+
 <h3>
 <a name="angularjs-ajax-directive" class="anchor" href="#angularjs-ajax-directive"><span class="octicon octicon-link"></span></a>Angularjs ajax directive.</h3>
 
-<p>Simple directive used to fetch data without writing any backend query request, as directive itself makes <code>$http</code> request to provided url. <code>ng-ajax</code> is only for simple usage, implementatino is strightforward simple, just makes our life a little bit easier.</p>
+<p>Simple directive used to fetch data without writing any backend query request, as directive itself makes <code>$http</code> request to provided url, applies to scope or stright to DOM with specified <code>key</code> for response data. <code>he-ajax</code> is only for simple usage, implementation is strightforward simple, just makes our life a little bit easier.</p>
 
 <h3>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h3>
 
-<p>Grab <code>ng-ajax.js</code> file from dist folder. 
-Then module dependency <code>vko-online</code> to your app module:</p>
+<p>Grab <code>he-ajax.js</code> file from dist folder. 
+Then module dependency <code>helium</code> to your app module:</p>
 
-<pre><code>angular.module('myApp', ['vko-online']);
-</code></pre>
+<div class="highlight highlight-html"><pre>angular.module('myApp', ['helium']);
+</pre></div>
 
-<p>Don't forget to add <code>&lt;script src="url/ng-ajax.js"&gt;&lt;/script&gt;</code> to your main <code>index.html</code> file.
-And apply <code>ng-ajax</code> attribute to any html element like <code>div, p, a, label</code> etc. 
-That's all, dead-simple.
-Result will be promise which will be resolved and applied when data retrieved.</p>
+<p>Don't forget to add <code>&lt;script src="url/he-ajax.js"&gt;&lt;/script&gt;</code> to your main <code>index.html</code> file.</p>
 
-<pre><code>&lt;div ng-ajax="http://someurl.io/getusername"&gt;&lt;/div&gt;
-</code></pre>
+<p>And apply <code>he-ajax</code> attribute to any html element like <code>div, p, a, label</code> etc. </p>
 
-<p>Will return result and apply to div or any other html element, consider request as plain string result.</p>
+<p>That's all, dead-simple.</p>
 
-<pre lang="&lt;"><code>div ng-ajax="http://someurl.io/somearray"&gt;&lt;/div&gt;
-</code></pre>
+<p>Result will be promise which will be resolved and applied when data retrieved.
+Don't worry about FOC, althought directive is simple, it's smart enought and won't show it.</p>
 
-<p>If result type is an Array, will apply only first element of array</p>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">he-ajax=</span><span class="s">"{url: 'http://jsonplaceholder.typicode.com/users/1/name'}"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
 
-<pre><code>&lt;div ng-ajax="http://someurl.io/someobject;name"&gt;&lt;/div&gt;
-</code></pre>
+<p><sup>Returns result and applies html element, consider request as plain string result.</sup></p>
 
-<p>Note usage of <strong>;</strong> splitter, used to apply object value by key <code>name</code>, only 1 use of <code>;</code> is allowed, if object doesn't have provided key, nothing will happen.
-<a href="">Live demo</a></p>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">he-ajax=</span><span class="s">"{url: 'http://jsonplaceholder.typicode.com/users/1', key: 'name'}"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p><sup>Consider request as object result. Note: <code>key</code> - will be applied to reponse data</sup></p>
+
+<div class="highlight highlight-html"><pre>  <span class="nt">&lt;div</span> <span class="na">he-ajax=</span><span class="s">"{url: 'http://jsonplaceholder.typicode.com/users/1', scope: 'user'}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>{{user.name}}<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p><sup>When data fetches, result applied to <code>scope.user</code>, then it can be used as any other scope model</sup></p>
 
 <h3>
 <a name="what-else" class="anchor" href="#what-else"><span class="octicon octicon-link"></span></a>What else</h3>
 
-<p>This directive was made to make easy access of user data, such as username, email, without any force. Fill free to contribute/use, MIT license.</p>
+<p>This directive was made to make easy access for user data, such as username, email, without any force, useful for static urls.</p>
+
+<p>Feel free to contribute/use, MIT license.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/vko-online">vko-online</a></p>
